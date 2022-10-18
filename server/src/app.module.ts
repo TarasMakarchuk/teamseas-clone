@@ -3,14 +3,18 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
+import { ApolloDriver } from '@nestjs/apollo';
 import { DonationsModule } from './donations/donations.module';
+import { GraphQLDateTime } from 'graphql-iso-date';
 
 @Module({
   imports: [
     GraphQLModule.forRoot({
       playground: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
-      typePath: ['./**/*.graphql'],
+      typePaths: ['./**/*.graphql'],
+      resolvers: { DateTime: GraphQLDateTime },
+      driver: ApolloDriver,
     }),
     DonationsModule,
   ],
