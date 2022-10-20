@@ -1,15 +1,26 @@
-import * as React from "react"
+import '@fontsource/montserrat/700.css';
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/300.css';
+
+import * as React from "react";
 import {
   ChakraProvider,
   Box,
   Text,
   VStack,
   Grid,
-  theme,
   Heading,
-} from "@chakra-ui/react"
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
+  extendTheme,
+} from "@chakra-ui/react";
+import { ColorModeSwitcher } from "./ColorModeSwitcher";
+import { Logo } from "./Logo";
+
+const theme = extendTheme({
+  fonts: {
+    heading: 'Montserrat',
+    body: 'Montserrat',
+  }
+});
 
 export const App = () => (
   <ChakraProvider theme={theme}>
@@ -23,6 +34,7 @@ export const App = () => (
             The team is growing everyday and scoring wins for the planet.
             <br /> Remove trash with us and track our progress!
           </Text>
+          <Heading as="h2" size="4xl">34,526,354</Heading>
         </VStack>
       </Grid>
     </Box>
