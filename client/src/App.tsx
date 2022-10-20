@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { Logo } from "./Logo";
+import { Counter } from "./components/donation/Counter";
 
 const theme = extendTheme({
   fonts: {
@@ -34,7 +35,9 @@ export const App = () => (
             The team is growing everyday and scoring wins for the planet.
             <br /> Remove trash with us and track our progress!
           </Text>
-          <Heading as="h2" size="4xl">34,526,354</Heading>
+          <Heading as="h2" size="4xl">
+            <Counter from={0} to={34526354}/>
+          </Heading>
         </VStack>
       </Grid>
     </Box>
