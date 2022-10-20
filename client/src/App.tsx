@@ -15,6 +15,13 @@ import {
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { Logo } from "./Logo";
 import { Counter } from "./components/donation/Counter";
+import {useQuery} from "urql";
+
+const TotalDonationsQuery = `
+  query Query {
+      totalDonations
+  }
+`;
 
 const theme = extendTheme({
   fonts: {
@@ -23,7 +30,15 @@ const theme = extendTheme({
   }
 });
 
-export const App = () => (
+export const App = () => {
+  const [{ data, fetching, error }] = useQuery({
+    query: TotalDonationsQuery,
+  });
+
+  if (fetching) return <p>Loading...</p>;
+  if (error) return <p>Oh no... { error.message }</p>;
+
+  return (
   <ChakraProvider theme={theme}>
     <Box textAlign="center" fontSize="xl">
       <Grid minH="100vh" p={3} bg="white.50">
@@ -36,10 +51,10 @@ export const App = () => (
             <br /> Remove trash with us and track our progress!
           </Text>
           <Heading as="h2" size="4xl">
-            <Counter from={0} to={34526354}/>
+            <Counter from={0} to={ data.totalDonations } />
           </Heading>
         </VStack>
       </Grid>
     </Box>
   </ChakraProvider>
-)
+)};
