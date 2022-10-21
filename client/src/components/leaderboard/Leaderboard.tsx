@@ -1,8 +1,8 @@
 import { Box, Heading, Radio, RadioGroup, Stack, VStack } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { LeaderboardItem } from "./LeaderboardItem";
-import {Donation} from "../../types";
-import {useQuery} from "urql";
+import { Donation } from "../../types";
+import { useQuery } from "urql";
 
 const DonationsQuery = `
   query Query($orderBy: OrderByParams) {
@@ -53,8 +53,8 @@ export const Leaderboard = (props: Props) => {
                     </Stack>
                 </RadioGroup>
 
-                {data.donations.map(donation =>
-                    <LeaderboardItem donation={donation}/>)}
+                { data.donations.map(donation =>
+                    <LeaderboardItem donation={donation}/>) }
             </VStack>
         </Box>
     )
