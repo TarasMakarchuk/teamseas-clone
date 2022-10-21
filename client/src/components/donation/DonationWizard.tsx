@@ -1,14 +1,15 @@
 import { Box, Button, VStack } from '@chakra-ui/react';
 import React, { useState } from 'react';
+import { CountSelection } from "./CountSelection";
 
 interface Props {}
 
 export const DonationWizard = (props: Props) => {
-    const [step, setStep] = useState(1);
-    const next = () => setStep(step + 1);
+    const [step, setStep] = useState(0);
+    const next = (values: any = {}) => setStep(step + 1);
     const previous = () => setStep(step - 1);
     const pages = [
-        <div>Page 1</div>,
+        <CountSelection next={next}/>,
         <div>Page 2</div>
     ];
 
