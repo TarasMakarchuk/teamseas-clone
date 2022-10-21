@@ -17,7 +17,7 @@ import { Logo } from "./Logo";
 import { Counter } from "./components/donation/Counter";
 import { useQuery, useSubscription } from "urql";
 import { Leaderboard } from './components/leaderboard/Leaderboard';
-import {DonationWizard} from "./components/donationWizard/DobationWizard";
+import { DonationWizard } from "./components/donation/DonationWizard";
 
 const TotalDonationsQuery = `
   query Query {
