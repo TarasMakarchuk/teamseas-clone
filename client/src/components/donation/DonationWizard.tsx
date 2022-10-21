@@ -1,6 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { CountSelection } from "./CountSelection";
+import { DonationDetails } from "./DonationDetails";
 
 interface Props {}
 
@@ -20,10 +21,7 @@ export const DonationWizard = (props: Props) => {
 
     const pages = [
         <CountSelection next={next} initialCount={donationDetails.count} />,
-        <div>
-            Page 2
-            <button onClick={previous}>prev</button>
-        </div>
+        <DonationDetails next={next} previous={previous}/>
     ];
 
     return <Box boxShadow="xl" p={8} bg="white" borderRadius="xl" minW="sm" >
