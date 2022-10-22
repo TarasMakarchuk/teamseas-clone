@@ -3,6 +3,15 @@ import React from 'react';
 import { Form, Formik} from "formik";
 import { InputField } from '../form/InputField';
 import { TextareaField } from '../form/TextAreaField';
+import * as yup from 'yup';
+
+const detailsSchema = yup.object().shape({
+    displayName: yup.string().required('Please enter a display name'),
+    email: yup.string().email('Please enter a valid email').required('Please enter an email'),
+    mobile: yup.string().nullable(),
+    team: yup.string().nullable(),
+    message: yup.string().nullable(),
+});
 
 interface Props {
     next: (values: any) => void;
@@ -23,6 +32,7 @@ export const DonationDetails = ({ next, previous }: Props) => {
             message: '',
         }}
             onSubmit={submit}
+            validationSchema={detailsSchema}
         >{(formikProps) => (
             <Form>
                 <VStack spacing={4} align="stretch">
