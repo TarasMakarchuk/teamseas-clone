@@ -1,5 +1,5 @@
-import {animate} from "framer-motion";
-import {useEffect, useRef} from "react";
+import { animate } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 interface Props {
     from: number;

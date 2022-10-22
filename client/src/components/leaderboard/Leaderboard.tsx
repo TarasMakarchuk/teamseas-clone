@@ -1,6 +1,14 @@
-import {Box, Heading, Radio, RadioGroup, Stack, useColorMode, VStack} from '@chakra-ui/react';
+import {
+    Box,
+    Heading,
+    Radio,
+    RadioGroup,
+    Stack,
+    useColorMode,
+    VStack
+} from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { LeaderboardItem } from "./LeaderboardItem";
+import { LeaderboardItem } from "./leaderboardItem";
 import { Donation } from "../../types";
 import { useQuery } from "urql";
 

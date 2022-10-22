@@ -9,7 +9,7 @@ import {
     Text
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { RadioCard } from './RadioCard';
+import { RadioCard } from '../DonationWizard/radioCard';
 
 interface Props {
     initialCount: number;

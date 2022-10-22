@@ -1,7 +1,7 @@
-import {Box, Button, useColorMode} from '@chakra-ui/react';
+import { Box, Button, useColorMode } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { CountSelection } from "./CountSelection";
-import { DonationDetails } from "./DonationDetails";
+import { CountSelection } from "../CounterSelection/CountSelection";
+import { DonationDetails } from "./donationDetails";
 import { useMutation } from "urql";
 
 const CreateDonation = `

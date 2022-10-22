@@ -1,8 +1,8 @@
 import { Button, Heading, VStack } from '@chakra-ui/react';
 import React from 'react';
 import { Form, Formik} from "formik";
-import { InputField } from '../form/InputField';
-import { TextareaField } from '../form/TextAreaField';
+import { InputField } from '../../form/InputField';
+import { TextareaField } from '../../form/TextAreaField';
 import * as yup from 'yup';
 
 const detailsSchema = yup.object().shape({
