@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Button } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { CountSelection } from "./CountSelection";
 import { DonationDetails } from "./DonationDetails";
@@ -24,6 +24,11 @@ export const DonationWizard = (props: Props) => {
     });
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [donationResult, createDonation] = useMutation(CreateDonation);
+
+    const first = () => {
+        setShowConfirmation(false);
+        setStep(0)
+    };
 
     const next = async (values: any = {}) => {
         const mergedDetails = { ...donationDetails, ...values };
@@ -55,6 +60,17 @@ export const DonationWizard = (props: Props) => {
                 Thank you { donationResult?.data.createDonation?.displayName }
                 <br />
                 for your donation of $ { donationResult?.data.createDonation?.count }!!
+                <Box my="25px">
+                    <Button
+                        width="full"
+                        colorScheme="orange"
+                        size="lg"
+                        borderRadius="full"
+                        onClick={first}
+                    >
+                        Submit a new donation
+                    </Button>
+                </Box>
             </div>
             ) : (
             pages[step]
