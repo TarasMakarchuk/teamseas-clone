@@ -1,4 +1,4 @@
-import {Avatar, Badge, Box } from '@chakra-ui/react';
+import { Avatar, Badge, Box } from '@chakra-ui/react';
 import { Text, Flex } from '@chakra-ui/layout';
 import React from 'react';
 import { Donation } from "../../types";
@@ -6,13 +6,21 @@ import { formatDate}  from "../../utils/formatDate";
 
 interface Props {
     donation: Donation;
+    colorMode: string;
 }
 
-export const LeaderboardItem = ({donation}: Props) => {
+export const LeaderboardItem = ({ donation, colorMode }: Props) => {
     const regExpDigits = /\B(?=(\d{3})+(?!\d))/g;
 
     return (
-        <Flex boxShadow="md" p={3} bg="white" borderRadius="lg" maxWidth="xl" w="100%">
+        <Flex
+            boxShadow="md" p={3}
+            bg={ colorMode === "light" ? "white" : "dark" }
+            borderRadius="lg"
+            maxWidth="xl"
+            w="100%"
+            border={ colorMode === "light" ? "" : "1px" }
+        >
             <Avatar size="lg"/>
             <Box flex="1" ml={4}>
                 <Flex justifyContent="space-between" h="100%">

@@ -1,4 +1,4 @@
-import { Box, Button } from '@chakra-ui/react';
+import {Box, Button, useColorMode} from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { CountSelection } from "./CountSelection";
 import { DonationDetails } from "./DonationDetails";
@@ -18,6 +18,7 @@ const CreateDonation = `
 interface Props {}
 
 export const DonationWizard = (props: Props) => {
+    const { colorMode } = useColorMode();
     const [step, setStep] = useState(0);
     const [donationDetails, setDonationDetails] = useState({
         count: 20,
@@ -50,10 +51,16 @@ export const DonationWizard = (props: Props) => {
 
     const pages = [
         <CountSelection next={next} initialCount={donationDetails.count} />,
-        <DonationDetails next={next} previous={previous} />
+        <DonationDetails next={next} previous={previous} colorMode={colorMode}/>
     ];
 
-    return <Box boxShadow="xl" p={8} bg="white" borderRadius="xl" minW="sm" >
+    return <Box
+        boxShadow="xl"
+        p={8}
+        bg={ colorMode === "light" ? "white" : "dark" }
+        borderRadius="xl"
+        minW="sm"
+    >
 
         { showConfirmation ? (
             <div>
