@@ -16,9 +16,10 @@ const detailsSchema = yup.object().shape({
 interface Props {
     next: (values: any) => void;
     previous: () => void;
+    colorMode: string;
 }
 
-export const DonationDetails = ({ next, previous }: Props) => {
+export const DonationDetails = ({ next, previous, colorMode }: Props) => {
     const submit = (values: any) => {
         next(values);
     };
@@ -81,7 +82,7 @@ export const DonationDetails = ({ next, previous }: Props) => {
                             borderRadius="full"
                             variant="ghost"
                             fontSize="sm"
-                            color="gray.700"
+                            color= { colorMode === "light" ? "gray.700" : "white.700" }
                             onClick={previous}
                         >
                             Previous
@@ -91,6 +92,5 @@ export const DonationDetails = ({ next, previous }: Props) => {
             </Form>
         )}
         </Formik>
-
     );
 };

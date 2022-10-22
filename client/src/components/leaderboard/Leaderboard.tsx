@@ -1,4 +1,4 @@
-import { Box, Heading, Radio, RadioGroup, Stack, VStack } from '@chakra-ui/react';
+import {Box, Heading, Radio, RadioGroup, Stack, useColorMode, VStack} from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { LeaderboardItem } from "./LeaderboardItem";
 import { Donation } from "../../types";
@@ -25,6 +25,7 @@ interface Props {}
 
 export const Leaderboard = (props: Props) => {
     const [field, setOrderByField] = useState('createdAt');
+    const { colorMode } = useColorMode();
 
     const [{ data, fetching, error }] = useQuery<DonationsQueryRes>({
         query: DonationsQuery,
@@ -54,7 +55,7 @@ export const Leaderboard = (props: Props) => {
                 </RadioGroup>
 
                 { data.donations.map(donation =>
-                    <LeaderboardItem key={donation.id} donation={donation}/>) }
+                    <LeaderboardItem key={donation.id} donation={donation} colorMode={colorMode}/>) }
             </VStack>
         </Box>
     )

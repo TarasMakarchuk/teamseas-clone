@@ -41,7 +41,7 @@ const theme = extendTheme({
   fonts: {
     heading: 'Montserrat',
     body: 'Montserrat',
-  }
+  },
 });
 
 export const App = () => {
