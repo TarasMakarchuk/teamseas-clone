@@ -14,10 +14,10 @@ import {
 } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { Logo } from "./Logo";
-import { Counter } from "./components/donation/Counter";
+import { Counter } from "./components/donation/CounterSelection/counter";
 import { useQuery, useSubscription } from "urql";
 import { Leaderboard } from './components/leaderboard/Leaderboard';
-import { DonationWizard } from "./components/donation/DonationWizard";
+import { DonationWizard } from "./components/donation/DonationWizard/DonationWizard";
 
 const TotalDonationsQuery = `
   query Query {
