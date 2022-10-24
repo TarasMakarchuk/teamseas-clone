@@ -51,14 +51,23 @@ export const Leaderboard = (props: Props) => {
     return (
         <Box w="100%">
             <VStack spacing={4}>
+               <Box
+                   boxShadow="xl"
+                    p={8}
+                    mb={8}
+                    bg={ colorMode === "light" ? "white" : "dark" }
+                    borderRadius="xl"
+                    minW="sm"
+                    border={ colorMode === "light" ? "" : "1px" }
+               >
                 <Heading as="h1" size="2xl">
                     LEADERBOARD
                 </Heading>
-
+               </Box>
                 <RadioGroup onChange={setOrderByField} value={field}>
                     <Stack direction='row'>
                         <Radio value='createdAt'>Most Recent</Radio>
-                        <Radio value='count'>Most Pounds</Radio>
+                        <Radio value='count'>Most Donations</Radio>
                     </Stack>
                 </RadioGroup>
 
