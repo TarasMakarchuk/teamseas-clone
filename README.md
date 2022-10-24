@@ -22,4 +22,4 @@ opportunity to collect donations to clean up the ocean environment from trash.
 - rename `.env.dist` file to `.env`
 - create prisma migration `npx prisma migrate dev --name init`
 - fill in prisma db `npx prisma db seed`
-- run the command to start the server: `npm run dev` 
+- run the command to start the server: `npm run dev` or `yarn run dev` 
