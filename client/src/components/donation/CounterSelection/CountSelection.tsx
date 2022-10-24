@@ -25,7 +25,7 @@ export const CountSelection = ({ initialCount, next }: Props) => {
     );
 
     const { getRootProps, getRadioProps } = useRadioGroup({
-        name: 'pounds',
+        name: 'dollars',
         value: pounds,
         onChange: (nextValue) => {
             setCustomAmount('');
@@ -52,7 +52,7 @@ export const CountSelection = ({ initialCount, next }: Props) => {
                     const radio = getRadioProps({ value, enterKeyHint: '' });
                     return (
                         <RadioCard key={value} {...radio}>
-                            { value } pounds
+                            { value } $
                         </RadioCard>
                     );
                 }) }
