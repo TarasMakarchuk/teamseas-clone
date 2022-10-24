@@ -37,9 +37,9 @@ export const LeaderboardItem = ({ donation, colorMode }: Props) => {
                                 borderRadius="full"
                                 textTransform="lowercase"
                                 py={1}
-                                px={3}
+                                px={5}
                                 as="div">
-                                {donation.count.toString().replace(regExpDigits, ",")} pounds
+                                {donation.count.toString().replace(regExpDigits, ",")} $
                             </Badge>
                         </div>
                         <Text fontSize="xs">{formatDate(donation.createdAt)}</Text>

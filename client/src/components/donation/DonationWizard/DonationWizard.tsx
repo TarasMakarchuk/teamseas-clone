@@ -58,6 +58,7 @@ export const DonationWizard = (props: Props) => {
         boxShadow="xl"
         p={8}
         bg={ colorMode === "light" ? "white" : "dark" }
+        border={ colorMode === "light" ? "" : "1px" }
         borderRadius="xl"
         minW="sm"
     >
